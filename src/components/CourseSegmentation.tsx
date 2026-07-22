@@ -9,22 +9,22 @@ export default function CourseSegmentation() {
     {
       title: "Program Specific",
       description: "Certificate, Executive, Post Graduate Certificate",
-      image: "/asset/imgi_11_project-management-v2.webp",
+      image: "https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745101/imgi_11_project-management-v2_y04smn.webp",
     },
     {
       title: "Industry Specific",
       description: "IT, Healthcare, Retail, Finance, Education, Manufacturing",
-      image: "/asset/imgi_12_digital-transformation-v2.webp",
+      image: "https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745101/imgi_12_digital-transformation-v2_w69ld1.webp",
     },
     {
       title: "Topic Specific",
       description: "Machine Learning, Design, Analytics, Cybersecurity, Cloud",
-      image: "/asset/imgi_13_data-science-v2.webp",
+      image: "https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745101/imgi_13_data-science-v2_hs3syd.webp",
     },
     {
       title: "Level Specific",
       description: "Senior Leadership, Mid-Career Professionals, Freshers",
-      image: "/asset/imgi_14_senior-management-v2.webp",
+      image: "https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745102/imgi_14_senior-management-v2_cfjjzj.webp",
     },
   ];
 

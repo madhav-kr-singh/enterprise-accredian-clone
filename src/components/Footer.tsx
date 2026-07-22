@@ -46,7 +46,7 @@ export default function Footer({ onEnquireClick }: FooterProps) {
         <div className="flex flex-col sm:flex-row items-start justify-between gap-6 pb-6 border-b border-border/60">
           <div className="space-y-5">
             <Image
-              src="/asset/imgi_1_logo.webp"
+              src="https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745100/imgi_1_logo_ioxpuz.webp"
               alt="Accredian Logo"
               width={140}
               height={36}
