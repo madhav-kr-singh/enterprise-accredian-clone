@@ -56,11 +56,11 @@ export default function Header() {
             <Image
               src="https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745100/imgi_1_logo_ioxpuz.webp"
               alt="Accredian Logo"
-              width={140}
+              width={140}  
               height={36}
               priority
-              className="h-9 w-auto object-contain"
-              style={{ width: "auto", height: "auto" }}
+              className="object-contain"
+              style={{ width: "auto", height: "36px" }}
             />
           </a>
 

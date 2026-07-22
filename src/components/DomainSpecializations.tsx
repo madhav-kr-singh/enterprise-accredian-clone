@@ -167,6 +167,8 @@ export default function DomainSpecializations({ onEnquireClick }: DomainSpeciali
                     src={activeDomain.image}
                     alt={activeDomain.title}
                     fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    loading="lazy"
                     className="object-contain"
                   />
                 </div>

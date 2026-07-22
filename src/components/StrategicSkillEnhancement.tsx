@@ -53,6 +53,8 @@ export default function StrategicSkillEnhancement() {
                   src="https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745127/urygx4yu7g8bilammj6h_ilmkyi.webp"
                   alt="Upskilling professionals team"
                   fill
+                  sizes="280px"
+                  loading="lazy"
                   className="object-contain brightness-105 pointer-events-none select-none"
                 />
               </div>

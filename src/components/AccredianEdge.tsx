@@ -32,6 +32,10 @@ export default function AccredianEdge() {
               <img
                 src="/asset/imgi_9_accredian-edge-usp-v3.svg"
                 alt="Accredian Edge strategic layout"
+                width={1280}
+                height={720}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-contain"
               />
             </div>
@@ -41,6 +45,10 @@ export default function AccredianEdge() {
               <img
                 src="/asset/imgi_10_accredian-edge-usp-mobile.svg"
                 alt="Accredian Edge mobile layout"
+                width={640}
+                height={800}
+                loading="lazy"
+                decoding="async"
                 className="w-full h-auto object-contain"
               />
             </div>
