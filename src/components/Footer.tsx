@@ -86,7 +86,7 @@ export default function Footer({ onEnquireClick }: FooterProps) {
         </div>
 
         {/* Mid Row: Columns */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 max-w-5xl">
+        <div className="flex flex-col md:flex-row justify-between gap-8 py-8 w-full">
           {/* Accredian Column */}
           <div className="space-y-4">
             <h4 className="text-sm font-bold text-text-primary uppercase tracking-wider">
@@ -106,7 +106,7 @@ export default function Footer({ onEnquireClick }: FooterProps) {
           </div>
 
           {/* Contact Details (no icons, exactly matching user mockup layout) */}
-          <div className="space-y-4">
+          <div className="space-y-4 md:max-w-md">
             <h4 className="text-sm font-bold text-text-primary uppercase tracking-wider">
               Contact Us
             </h4>

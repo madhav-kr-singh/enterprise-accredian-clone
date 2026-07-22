@@ -181,8 +181,8 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                       </div>
                     )}
 
-                    {/* Scrollable inputs wrapper with padding bottom to accommodate dropdowns */}
-                    <div className="space-y-4 max-h-[62vh] md:max-h-[460px] overflow-y-auto pr-1 no-scrollbar pb-36">
+                    {/* Inputs wrapper (auto-height for mobile to fit all content without scrolling) */}
+                    <div className="space-y-4 pb-2">
                       
                       {/* Name */}
                       <div>

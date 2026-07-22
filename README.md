@@ -7,8 +7,8 @@ The application is built using **Next.js (App Router)**, **TypeScript**, and **T
 ---
 
 ## 🚀 Live Demo & Repository
-- **Vercel Live Deployment:** [Deployed Live Link](https://accredian-enterprise-intern.vercel.app/) *(To be configured upon Vercel import)*
-- **GitHub Repository:** [accredian](https://github.com/madhav-kr-singh/enterprise-accredian-clone.git) *(To be linked upon repo import)*
+- **Vercel Live Deployment:** [Deployed Live Link](https://enterprise-accredian-clone.vercel.app/)
+- **GitHub Repository:** [accredian](https://github.com/madhav-kr-singh/enterprise-accredian-clone.git)
 
 ---
 
@@ -53,7 +53,7 @@ The application is built using **Next.js (App Router)**, **TypeScript**, and **T
 
 1. **Clone this repository:**
    ```bash
-   git clone <your-repo-link>
+   git clone https://github.com/madhav-kr-singh/enterprise-accredian-clone.git
    cd accredian
    ```
 
