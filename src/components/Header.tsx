@@ -44,6 +44,7 @@ export default function Header() {
 
   return (
     <header
+      suppressHydrationWarning
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled
           ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-border/80 py-3"
           : "bg-white/80 backdrop-blur-sm py-4 border-b border-border/40"
@@ -59,8 +60,7 @@ export default function Header() {
               width={140}  
               height={36}
               priority
-              className="object-contain"
-              style={{ width: "auto", height: "36px" }}
+              className="h-9 w-auto object-contain"
             />
           </a>
 

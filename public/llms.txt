@@ -1,0 +1,31 @@
+# Accredian Enterprise
+
+> Accredian Enterprise delivers customized Learning & Development (L&D) solutions for corporate teams across technology, product, digital transformation, and leadership domains.
+
+## What We Do
+
+- Custom cohort-based upskilling programs for enterprise teams
+- Gen-AI bootcamps and data science curricula
+- CAT (Competency Assessment & Tracking) framework for skill gap analysis
+- Senior leadership and management elevation programs
+
+## Key Sections
+
+- Hero & Overview: https://enterprise.accredian.com/#hero
+- Stats & Impact: https://enterprise.accredian.com/#stats
+- Client Partnerships: https://enterprise.accredian.com/#clients
+- Accredian Edge (differentiators): https://enterprise.accredian.com/#edge
+- CAT Framework: https://enterprise.accredian.com/#cat
+- How It Works: https://enterprise.accredian.com/#process
+- FAQs: https://enterprise.accredian.com/#faq
+- Testimonials: https://enterprise.accredian.com/#testimonials
+
+## Contact
+
+- Website: https://enterprise.accredian.com
+- Email: enterprise@accredian.com
+- LinkedIn: https://www.linkedin.com/company/accredian
+
+## Sitemap
+
+https://enterprise.accredian.com/sitemap.xml

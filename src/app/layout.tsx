@@ -31,6 +31,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Accredian" }],
   creator: "Accredian L&D Team",
   publisher: "Accredian",
+  alternates: {
+    canonical: "https://enterprise.accredian.com",
+  },
   robots: {
     index: true,
     follow: true,
