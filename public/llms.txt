@@ -1,23 +1,38 @@
 # Accredian Enterprise
 
-> Accredian Enterprise delivers customized Learning & Development (L&D) solutions for corporate teams across technology, product, digital transformation, and leadership domains.
+> Accredian Enterprise is India's leading Gen AI & L&D corporate training provider, delivering customized upskilling programs for enterprise teams in technology, product, digital transformation, and leadership domains.
+
+## Key Facts
+
+- 10,000+ professionals trained across enterprise organizations
+- Clients include Reliance, HCL, IBM, ADP, CRIF, and Bayer
+- Programs range 8–12 weeks, cohort-based, live instructor-led
+- Corporate AI training costs: INR 1.5L–4L (awareness workshops), INR 8L–25L (role-specific cohorts)
+- Institutional partnerships: IITs, IIMs, XLRI, SP Jain
+- Proprietary CAT Framework: Concept → Application → Tools (3-stage training model)
 
 ## What We Do
 
-- Custom cohort-based upskilling programs for enterprise teams
-- Gen-AI bootcamps and data science curricula
-- CAT (Competency Assessment & Tracking) framework for skill gap analysis
-- Senior leadership and management elevation programs
+- Gen AI bootcamps and LLM training for corporate teams
+- Skill gap analysis using the CAT (Concept, Application, Tools) framework
+- Cohort-based upskilling in Data Science, AI, Product Management, and Leadership
+- CXO and senior leadership elevation programs (4–6 months)
+- Digital transformation and Fintech training programs
+- ROI dashboards and post-training competency tracking
+
+## Who We Serve
+
+- CHROs, CLOs, L&D leaders at mid-size and large enterprises
+- Tech teams (engineering, data, product) needing AI upskilling
+- Senior leadership teams undergoing digital transformation
+- Organizations in BFSI, IT/ITES, Manufacturing, and Consulting sectors
 
 ## Key Sections
 
-- Hero & Overview: https://enterprise.accredian.com/#hero
-- Stats & Impact: https://enterprise.accredian.com/#stats
-- Client Partnerships: https://enterprise.accredian.com/#clients
+- Hero & Overview: https://enterprise.accredian.com
 - Accredian Edge (differentiators): https://enterprise.accredian.com/#edge
 - CAT Framework: https://enterprise.accredian.com/#cat
-- How It Works: https://enterprise.accredian.com/#process
-- FAQs: https://enterprise.accredian.com/#faq
+- FAQ: https://enterprise.accredian.com/#faq
 - Testimonials: https://enterprise.accredian.com/#testimonials
 
 ## Contact
