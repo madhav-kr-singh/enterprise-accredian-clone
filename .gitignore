@@ -39,3 +39,27 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Markdown 
+*AGENTS.md
+CLAUDE.md
+design.md
+design1.metadata
+Full Stack Developer Intern tasks.md
+
+# Mockups and UI images
+*ui.png
+*ui.jpg
+*ui.jpeg
+*ui.webp
+complete-ui.png
+mobile ui.png
+
+# Mock lead database file
+enquiries.json
+
+# IDE / local agent metadata
+.gemini/
+.agents/
+.vscode/
+.idea/
