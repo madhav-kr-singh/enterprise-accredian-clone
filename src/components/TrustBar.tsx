@@ -5,10 +5,10 @@ import Image from "next/image";
 
 export default function TrustBar() {
   const logos = [
-    { name: "Reliance", src: "/asset/imgi_3_rel.png" },
-    { name: "HCL", src: "/asset/imgi_4_hcl.png" },
-    { name: "IBM", src: "/asset/imgi_5_ibm.png" },
-    { name: "CRIF", src: "/asset/imgi_6_crif.png" },
+    { name: "Reliance", src: "https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745126/dspmr9txrztdnosqbs2i_gujzhc.webp" },
+    { name: "HCL", src: "https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745127/vwehd5njmwjc7broakcu_ep0vks.webp" },
+    { name: "IBM", src: "https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745126/qemw2ptz4vojmsy90yo2_awiwsg.webp" },
+    { name: "CRIF", src: "https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745126/td6sisnazikccr4q4zg4_ytbgw6.webp" },
     { name: "ADP", src: "/asset/imgi_7_adp.svg" },
     { name: "Bayer", src: "/asset/imgi_8_bayer.svg" },
   ];
@@ -45,6 +45,7 @@ export default function TrustBar() {
                     src={logo.src}
                     alt={`${logo.name} Logo`}
                     fill
+                    sizes="(max-width: 768px) 110px, 160px"
                     className="object-contain"
                   />
                 </div>
@@ -62,6 +63,7 @@ export default function TrustBar() {
                     src={logo.src}
                     alt={`${logo.name} Logo`}
                     fill
+                    sizes="(max-width: 768px) 110px, 160px"
                     className="object-contain"
                   />
                 </div>

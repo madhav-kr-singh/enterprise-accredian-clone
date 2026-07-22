@@ -121,14 +121,15 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
             transition={{ type: "spring", duration: 0.4 }}
             className="relative w-full max-w-md md:max-w-4xl overflow-hidden rounded-3xl bg-white shadow-2xl border border-border flex flex-col md:flex-row z-10"
           >
-            {/* Left Column: Image (visible on desktop/tablet only) */}
             <div className="hidden md:block md:w-1/2 relative min-h-[580px] self-stretch">
+              <div className="absolute inset-0 z-20" onContextMenu={(e) => e.preventDefault()} />
               <Image
-                src="/asset/enquiry.webp"
+                src="https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745101/enquiry_slbyog.webp"
                 alt="Business discussions in a glass building"
                 fill
                 priority
-                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover pointer-events-none select-none"
               />
             </div>
 

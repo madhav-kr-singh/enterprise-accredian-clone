@@ -1,21 +1,26 @@
 "use client";
 
 import React, { useState } from "react";
+import dynamic from "next/dynamic";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import StatsBand from "@/components/StatsBand";
-import TrustBar from "@/components/TrustBar";
-import AccredianEdge from "@/components/AccredianEdge";
-import DomainExpertise from "@/components/DomainExpertise";
-import CourseSegmentation from "@/components/CourseSegmentation";
-import StrategicSkillEnhancement from "@/components/StrategicSkillEnhancement";
-import CatFramework from "@/components/CatFramework";
-import DeliverResults from "@/components/DeliverResults";
-import FaqAccordion from "@/components/FaqAccordion";
-import Testimonials from "@/components/Testimonials";
-import FinalCTA from "@/components/FinalCTA";
-import Footer from "@/components/Footer";
-import EnquiryModal from "@/components/EnquiryModal";
+
+// Below the fold sections lazy loaded
+const TrustBar = dynamic(() => import("@/components/TrustBar"), { ssr: false });
+const AccredianEdge = dynamic(() => import("@/components/AccredianEdge"), { ssr: false });
+const DomainExpertise = dynamic(() => import("@/components/DomainExpertise"), { ssr: false });
+const CourseSegmentation = dynamic(() => import("@/components/CourseSegmentation"), { ssr: false });
+const StrategicSkillEnhancement = dynamic(() => import("@/components/StrategicSkillEnhancement"), { ssr: false });
+const CatFramework = dynamic(() => import("@/components/CatFramework"), { ssr: false });
+const DeliverResults = dynamic(() => import("@/components/DeliverResults"), { ssr: false });
+const FaqAccordion = dynamic(() => import("@/components/FaqAccordion"), { ssr: false });
+const Testimonials = dynamic(() => import("@/components/Testimonials"), { ssr: false });
+const FinalCTA = dynamic(() => import("@/components/FinalCTA"), { ssr: false });
+const Footer = dynamic(() => import("@/components/Footer"), { ssr: false });
+
+// Modal form loaded only when needed
+const EnquiryModal = dynamic(() => import("@/components/EnquiryModal"), { ssr: false });
 
 export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -24,7 +29,7 @@ export default function Home() {
   const closeModal = () => setIsModalOpen(false);
 
   return (
-    <div className="flex flex-col min-h-screen bg-white">
+    <div className="flex flex-col min-h-screen bg-white" suppressHydrationWarning>
       {/* Navigation Menu */}
       <Header />
 

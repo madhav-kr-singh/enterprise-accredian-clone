@@ -23,8 +23,8 @@ export default function StatsBand() {
   ];
 
   return (
-    <section id="stats" className="bg-white pt-8 pb-12 lg:pt-19 lg:pb-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="stats" className="bg-white pt-8 pb-12 lg:pt-19 lg:pb-16" suppressHydrationWarning>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" suppressHydrationWarning>
         {/* Section Header */}
         <div className="mx-auto max-w-3xl text-center mb-12">
           <h2 className="text-3xl font-extrabold tracking-tight text-text-primary sm:text-4xl">

@@ -44,23 +44,23 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled
           ? "bg-white/90 backdrop-blur-md shadow-sm border-b border-border/80 py-3"
           : "bg-white/80 backdrop-blur-sm py-4 border-b border-border/40"
-      }`}
+        }`}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#hero" onClick={(e) => handleNavClick(e, "#hero")} className="relative z-50 flex items-center">
             <Image
-              src="/asset/imgi_1_logo.webp"
+              src="https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745100/imgi_1_logo_ioxpuz.webp"
               alt="Accredian Logo"
               width={140}
               height={36}
               priority
               className="h-9 w-auto object-contain"
+              style={{ width: "auto", height: "auto" }}
             />
           </a>
 
@@ -108,11 +108,10 @@ export default function Header() {
                   key={link.label}
                   href={link.href}
                   onClick={(e) => handleNavClick(e, link.href)}
-                  className={`text-sm font-bold transition-colors block w-fit ${
-                    link.label === "Home"
+                  className={`text-sm font-bold transition-colors block w-fit ${link.label === "Home"
                       ? "text-primary border-b-2 border-primary pb-0.5"
                       : "text-text-primary hover:text-primary"
-                  }`}
+                    }`}
                 >
                   {link.label}
                 </a>

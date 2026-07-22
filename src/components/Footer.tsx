@@ -51,6 +51,7 @@ export default function Footer({ onEnquireClick }: FooterProps) {
               width={140}
               height={36}
               className="h-9 w-auto object-contain"
+              style={{ width: "auto", height: "auto" }}
             />
             {/* Social Icons row (no borders, matching user mockup layout) */}
             <div className="flex space-x-5 items-center text-text-secondary/80">

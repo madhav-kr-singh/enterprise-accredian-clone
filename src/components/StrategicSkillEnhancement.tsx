@@ -48,11 +48,12 @@ export default function StrategicSkillEnhancement() {
 
               {/* Photo representation - flush bottom and left on desktop, hidden on mobile (ponytail: layout optimization matching mobile ui.png) */}
               <div className="relative w-full max-w-[280px] aspect-[1.1] mx-auto lg:-ml-10 lg:mr-auto hidden lg:block lg:-mb-16 self-end mt-4">
+                <div className="absolute inset-0 z-20" onContextMenu={(e) => e.preventDefault()} />
                 <Image
-                  src="/asset/imgi_15_imagehuman.png"
+                  src="https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745127/urygx4yu7g8bilammj6h_ilmkyi.webp"
                   alt="Upskilling professionals team"
                   fill
-                  className="object-contain brightness-105"
+                  className="object-contain brightness-105 pointer-events-none select-none"
                 />
               </div>
             </div>

@@ -11,10 +11,10 @@ interface HeroProps {
 
 export default function Hero({ onEnquireClick }: HeroProps) {
   return (
-    <section id="hero" className="bg-white pt-6 pb-0 sm:pt-40 lg:pt-29 lg:pb-0 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="hero" className="bg-white pt-6 pb-0 sm:pt-40 lg:pt-29 lg:pb-0 overflow-hidden" suppressHydrationWarning>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" suppressHydrationWarning>
         {/* Main Hero Card Container */}
-        <div className="relative overflow-hidden bg-gradient-to-br from-[#EBF3FF] via-[#F4F8FF] to-white lg:border lg:border-[#E1EEFF] p-6 sm:p-15 sm-py-20 lg:py-14 lg:px-12 lg:pl-12 lg:shadow-sm -mx-4 sm:-mx-6 lg:mx-0 rounded-none lg:rounded-[2rem] border-none shadow-none">
+        <div className="relative overflow-hidden bg-gradient-to-br from-[#EBF3FF] via-[#F4F8FF] to-white lg:border lg:border-[#E1EEFF] p-6 sm:p-15 sm-py-20 lg:py-14 lg:px-12 lg:pl-12 lg:shadow-sm -mx-4 sm:-mx-6 lg:mx-0 rounded-none lg:rounded-[2rem] border-none shadow-none" suppressHydrationWarning>
           {/* Decorative glowing background elements */}
           <div className="absolute top-0 right-1/4 w-[300px] h-[20px] bg-primary/5 rounded-full blur-[80px] pointer-events-none" />
 
@@ -101,12 +101,14 @@ export default function Hero({ onEnquireClick }: HeroProps) {
               className="lg:hidden w-full flex justify-center mt-6 mb-6 order-1"
             >
               <div className="relative w-full max-w-sm aspect-[1.3] h-[250px]">
+                <div className="absolute inset-0 z-20" onContextMenu={(e) => e.preventDefault()} />
                 <Image
-                  src="/asset/imgi_2_corporate-big-hero-v4.webp"
+                  src="https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745602/hero-img_gl0tdo.webp"
                   alt="Business professional upskilling partners"
                   fill
                   priority
-                  className="object-contain object-center drop-shadow-md"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-contain object-center drop-shadow-md pointer-events-none select-none"
                 />
               </div>
             </motion.div>
@@ -119,12 +121,14 @@ export default function Hero({ onEnquireClick }: HeroProps) {
             transition={{ duration: 0.6, delay: 0.15 }}
             className="absolute right-0 bottom-[-24px] lg:bottom-[-60px] xl:bottom-[-60px] hidden lg:block w-[48%] xl:w-[52%] h-[150%] xl:h-[125%] z-10 pointer-events-none"
           >
+            <div className="absolute inset-0 z-20" onContextMenu={(e) => e.preventDefault()} />
             <Image
-              src="/asset/imgi_2_corporate-big-hero-v4.webp"
+              src="https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745602/hero-img_gl0tdo.webp"
               alt="Business professional upskilling partners"
               fill
               priority
-              className="object-contain object-bottom object-right drop-shadow-lg"
+              sizes="(max-width: 1024px) 100vw, 50vw"
+              className="object-contain object-bottom object-right drop-shadow-lg pointer-events-none select-none"
             />
           </motion.div>
         </div>

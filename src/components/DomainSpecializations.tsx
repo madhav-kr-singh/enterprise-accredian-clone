@@ -14,7 +14,7 @@ export default function DomainSpecializations({ onEnquireClick }: DomainSpeciali
     {
       id: "product-mgmt",
       title: "Product Management & Project Strategy",
-      image: "/asset/imgi_11_project-management-v2.webp",
+      image: "https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745101/imgi_11_project-management-v2_y04smn.webp",
       audience: "Product Managers, Project Managers, Consultants, Growth Marketers",
       modules: [
         "Product Roadmap & Backlog Orchestration",
@@ -27,7 +27,7 @@ export default function DomainSpecializations({ onEnquireClick }: DomainSpeciali
     {
       id: "tech-data",
       title: "Tech & Data Insights (Data Science & AI)",
-      image: "/asset/imgi_13_data-science-v2.webp",
+      image: "https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745101/imgi_13_data-science-v2_hs3syd.webp",
       audience: "Software Engineers, Data Engineers, Business Analysts, Technical Architects",
       modules: [
         "Data Engineering Pipeline Construction",
@@ -40,7 +40,7 @@ export default function DomainSpecializations({ onEnquireClick }: DomainSpeciali
     {
       id: "digital-trans",
       title: "Digital Enterprise & Transformation",
-      image: "/asset/imgi_12_digital-transformation-v2.webp",
+      image: "https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745101/imgi_12_digital-transformation-v2_w69ld1.webp",
       audience: "Operations Leaders, IT Managers, Digital Strategists, Enterprise Architects",
       modules: [
         "Legacy Code Modernization & Migration",
@@ -53,7 +53,7 @@ export default function DomainSpecializations({ onEnquireClick }: DomainSpeciali
     {
       id: "senior-mgmt",
       title: "Senior Management & Leadership Elevation",
-      image: "/asset/imgi_14_senior-management-v2.webp",
+      image: "https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745102/imgi_14_senior-management-v2_cfjjzj.webp",
       audience: "VP/Director of Engineering, Chief Information Officers, CHROs, Emerging Leaders",
       modules: [
         "Emotional Intelligence (EQ) & Team Trust",
