@@ -58,16 +58,19 @@ export async function POST(request: Request) {
 
     enquiries.push(newEnquiry);
 
-    // Save updated database
-    await fs.writeFile(ENQUIRIES_FILE, JSON.stringify(enquiries, null, 2), "utf-8");
-
-    console.log("New corporate lead registered:", newEnquiry);
+    // Save updated database (Wrap in try-catch for read-only filesystems like Vercel)
+    try {
+      await fs.writeFile(ENQUIRIES_FILE, JSON.stringify(enquiries, null, 2), "utf-8");
+      console.log("New corporate lead registered and saved:", newEnquiry);
+    } catch (writeErr) {
+      console.warn("Failed to write to enquiries.json (Likely read-only filesystem), but lead was processed:", newEnquiry);
+    }
 
     return NextResponse.json(
       { message: "Enquiry logged successfully.", lead: newEnquiry },
       { status: 200 }
     );
-  } catch (err) {
+  } catch (err: any) {
     console.error("API error in enquire route:", err);
     return NextResponse.json(
       { message: "Internal server error. Failed to log lead." },

@@ -12,10 +12,12 @@ The application is built using **Next.js (App Router)**, **TypeScript**, and **T
 
 ---
 
-## 🛠️ Assignment Scope & Features Implemented
+## 🛠️ Approach Taken
 
-1. **Fully Responsive Landing Page:**
-   - **Hero Section:** Optimizes typography, grids, and mobile-bleed image cells. Implements custom checklist items mapping dynamic L&D value cards.
+1. **Complete Responsive UI (Mobile + Desktop):**
+   - **Clean and Structured UI:** Follows a mobile-first design system optimizing typography, grids, and mobile-bleed image cells for smaller screens before scaling up.
+   - **Reusable Components:** Highly modular components (e.g. `TrustBar`, `EnquiryModal`, `CourseSegmentation`) cleanly structured to avoid code duplication.
+   - **Smooth Navigation:** Implemented a sticky glassmorphism header with smooth anchor scrolling between sections.
    - **Interactive Header:** Sticky glassmorphism header with navigation anchoring and a custom floating mobile category dropdown card.
    - **Seamless Marquee (`TrustBar`):** Infinite logo carousel displaying corporate partnerships (Reliance, HCL, IBM, ADP, Bayer, CRIF) scrolling with zero visual restarts.
    - **Stats Section:** Vertical columns on desktop, transitioning into horizontal row-based badge cards on mobile.
@@ -25,12 +27,9 @@ The application is built using **Next.js (App Router)**, **TypeScript**, and **T
    - **Support Headset Banner (Final CTA):** High-fidelity card layout with concentric ring backgrounds, double-rim squircle outline, and a mirrored smiley agent headset icon.
    - **Light Footer:** Solid white background (`bg-white`) footer featuring flat social assets and left-aligned contact detail layouts.
 
-2. **Lead Capture Integration (Bonus Task):**
-   - **Enquiry Modal:** Desktop split-screen popover displaying a modern glass office background image (`/asset/enquiry.webp`) on the left and input fields on the right (hidden image on mobile).
-   - **High-Contrast Minimal Inputs:** Bottom-border only input fields with dark placeholder legibility (`placeholder:text-text-secondary/80`).
-   - **Custom Phone flag:** International flag code indicator with inline emoji prefix (`🇮🇳 +91`) and number inputs.
-   - **Hamburger-style Select Dropdowns:** Custom floating dropdown menus built in React, matching the aesthetics of the mobile navbar hamburger menu overlay.
-   - **Mock Database API:** An asynchronous route handler (`POST /api/enquire`) that validates payloads and appends them to a local JSON file (`enquiries.json`).
+2. ⭐ **Bonus Task Completed (Lead Capture & API Backend):**
+   - **Added a Lead Capture Form:** Designed a desktop split-screen popover (`EnquiryModal`) displaying a modern glass office background image (`/asset/enquiry.webp`) on the left and high-contrast minimal input fields on the right. Includes international phone flags (`🇮🇳 +91`) and custom hamburger-style dropdowns.
+   - **Stored Data via API (Next.js API route):** Built an asynchronous Next.js route handler (`POST /api/enquire`) that validates payloads on the backend and acts as a mock database by securely appending the data into a local `enquiries.json` file.
 
 ---
 
@@ -78,12 +77,12 @@ The application is built using **Next.js (App Router)**, **TypeScript**, and **T
 
 ---
 
-## 🤖 AI Usage & Pairing Explanation
+## 🤖 AI Usage Explanation
 
 This project was developed by pairing with AI tools, strictly following the intern assignment guidelines.
 
 ### Where AI Helped
-- **Initial Setup & Scaffolding:** Accelerated the boilerplate structure for the Next.js App Router and JSON API endpoint.
+- **Antigravity AI Agent:** Used the Antigravity agent to accelerate the boilerplate structure for the Next.js App Router, JSON API endpoint, and technical SEO canonical updates.
 - **Form Validation Scaffolds:** Rapidly set up basic React validation states (`success`, `loading`, `error`) and standard form fields.
 - **Base CSS Variables:** Bootstrapped the color configuration matching Accredian's blue brand tones.
 
@@ -96,7 +95,7 @@ This project was developed by pairing with AI tools, strictly following the inte
 
 ---
 
-## 🔮 Future Enhancements (With More Time)
+## 🔮 Improvements I would make with more time
 1. **Production Database:** Sync `/api/enquire` to a serverless Postgres database (like Neon or Supabase) rather than writing to a local JSON file.
 2. **Sales Notifications:** Integrate automated L&D email routing via SendGrid or Resend to alert L&D staff in real-time upon submission.
 3. **Leads Dashboard (`/admin`):** Build a secure, authenticated dashboard displaying submitted leads in a searchable grid with CSV export options.

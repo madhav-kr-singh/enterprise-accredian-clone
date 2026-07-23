@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, CheckCircle, Loader2, ChevronDown } from "lucide-react";
+import { X, CheckCircle, Loader2, ChevronDown, AlertTriangle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 
@@ -9,6 +9,21 @@ interface EnquiryModalProps {
   isOpen: boolean;
   onClose: () => void;
 }
+
+const countries = [
+  { name: "India", code: "in", dialCode: "+91" },
+  { name: "Indonesia", code: "id", dialCode: "+62" },
+  { name: "Iran", code: "ir", dialCode: "+98" },
+  { name: "Iraq", code: "iq", dialCode: "+964" },
+  { name: "United States", code: "us", dialCode: "+1" },
+  { name: "United Kingdom", code: "gb", dialCode: "+44" },
+  { name: "Canada", code: "ca", dialCode: "+1" },
+  { name: "Australia", code: "au", dialCode: "+61" },
+  { name: "Singapore", code: "sg", dialCode: "+65" },
+  { name: "United Arab Emirates", code: "ae", dialCode: "+971" },
+  { name: "Germany", code: "de", dialCode: "+49" },
+  { name: "France", code: "fr", dialCode: "+33" },
+];
 
 export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
   const [formData, setFormData] = useState({
@@ -24,11 +39,15 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
 
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState("");
+  const [submitError, setSubmitError] = useState("");
+  const [errors, setErrors] = useState<Record<string, string>>({});
 
   // Custom Dropdown Open States
   const [domainOpen, setDomainOpen] = useState(false);
   const [deliveryOpen, setDeliveryOpen] = useState(false);
+  const [countryOpen, setCountryOpen] = useState(false);
+  const [countrySearch, setCountrySearch] = useState("");
+  const [selectedCountry, setSelectedCountry] = useState(countries[0]);
 
   const domainOptions = [
     "Product & Innovation",
@@ -52,17 +71,45 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (errors[e.target.name]) {
+      setErrors({ ...errors, [e.target.name]: "" });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setLoading(true);
-    setError("");
+    
+    // Custom Validation
+    const newErrors: Record<string, string> = {};
+    if (!formData.name.trim()) newErrors.name = "Name is required";
+    else if (!/^[A-Za-z\s]+$/.test(formData.name)) newErrors.name = "Name should only contain letters and spaces";
+    
+    if (!formData.email.trim()) newErrors.email = "Email is required";
+    else if (!/^[a-z0-9._%+\-]+@[a-z0-9.\-]+\.[a-z]{2,}$/i.test(formData.email)) newErrors.email = "Please enter a valid email address";
+    
+    if (!formData.phone.trim()) newErrors.phone = "Contact number is required";
+    else if (!/^[0-9]{10}$/.test(formData.phone)) newErrors.phone = "Please enter a valid 10-digit mobile number";
+    
+    if (!formData.company.trim()) newErrors.company = "Company name is required";
+    else if (formData.company.trim().length < 2) newErrors.company = "Company name must be at least 2 characters";
+    
+    if (!formData.domain) newErrors.domain = "Course domain is required";
+    if (!formData.candidates.trim()) newErrors.candidates = "Number of candidates are required";
+    if (!formData.deliveryMode) newErrors.deliveryMode = "Mode of delivery is required";
 
-    // Prepend India code if not present
-    const formattedPhone = formData.phone.trim().startsWith("+91")
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+      return;
+    }
+
+    setErrors({});
+    setLoading(true);
+    setSubmitError("");
+
+    // Prepend selected country code if not present
+    const formattedPhone = formData.phone.trim().startsWith(selectedCountry.dialCode)
       ? formData.phone.trim()
-      : `+91 ${formData.phone.trim()}`;
+      : `${selectedCountry.dialCode} ${formData.phone.trim()}`;
 
     try {
       const res = await fetch("/api/enquire", {
@@ -91,10 +138,10 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
           location: "",
         });
       } else {
-        setError(data.message || "Something went wrong. Please try again.");
+        setSubmitError(data.message || "Something went wrong. Please try again.");
       }
     } catch (err) {
-      setError("Failed to connect to the server. Please try again.");
+      setSubmitError("Failed to connect to the server. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -171,14 +218,14 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                       }}
                       className="mt-6 w-full sm:w-auto px-6 py-2.5 rounded-lg bg-primary text-white hover:bg-primary-dark font-semibold transition-colors cursor-pointer"
                     >
-                      Close Window
+                      Got it, thanks!
                     </button>
                   </motion.div>
                 ) : (
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    {error && (
+                  <form onSubmit={handleSubmit} className="space-y-4" noValidate>
+                    {submitError && (
                       <div className="p-3 text-xs rounded-lg bg-red-50 text-red-600 border border-red-200">
-                        {error}
+                        {submitError}
                       </div>
                     )}
 
@@ -186,64 +233,153 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                     <div className="space-y-4 pb-2">
                       
                       {/* Name */}
-                      <div>
+                      <div className="relative">
                         <input
                           type="text"
                           name="name"
                           id="name"
-                          required
                           value={formData.name}
                           onChange={handleChange}
-                          placeholder="Enter Name"
-                          className="w-full border-b border-border/80 px-0 py-2 text-sm text-text-primary placeholder:text-text-secondary/80 focus:border-primary focus:outline-none transition-all bg-transparent rounded-none"
+                          className={`w-full border-b ${errors.name ? 'border-red-500' : 'border-border/80'} px-0 py-2 text-sm text-text-primary focus:outline-none transition-all bg-transparent rounded-none ${errors.name ? '' : 'focus:border-primary'}`}
                         />
+                        {!formData.name && (
+                          <div className="absolute left-0 top-2 text-sm text-text-secondary/80 pointer-events-none select-none">
+                            Enter Name <span className="font-bold">*</span>
+                          </div>
+                        )}
+                        {errors.name && (
+                          <div className="flex items-center gap-1.5 mt-1 text-red-500">
+                            <AlertTriangle className="w-3.5 h-3.5" />
+                            <span className="text-xs">{errors.name}</span>
+                          </div>
+                        )}
                       </div>
 
                       {/* Email */}
-                      <div>
+                      <div className="relative">
                         <input
                           type="email"
                           name="email"
                           id="email"
-                          required
                           value={formData.email}
                           onChange={handleChange}
-                          placeholder="Enter Email"
-                          className="w-full border-b border-border/80 px-0 py-2 text-sm text-text-primary placeholder:text-text-secondary/80 focus:border-primary focus:outline-none transition-all bg-transparent rounded-none"
+                          className={`w-full border-b ${errors.email ? 'border-red-500' : 'border-border/80'} px-0 py-2 text-sm text-text-primary focus:outline-none transition-all bg-transparent rounded-none ${errors.email ? '' : 'focus:border-primary'}`}
                         />
+                        {!formData.email && (
+                          <div className="absolute left-0 top-2 text-sm text-text-secondary/80 pointer-events-none select-none">
+                            Enter Email <span className="font-bold">*</span>
+                          </div>
+                        )}
+                        {errors.email && (
+                          <div className="flex items-center gap-1.5 mt-1 text-red-500">
+                            <AlertTriangle className="w-3.5 h-3.5" />
+                            <span className="text-xs">{errors.email}</span>
+                          </div>
+                        )}
                       </div>
 
                       {/* Phone */}
-                      <div className="relative flex items-center border-b border-border/80 focus-within:border-primary transition-all py-0.5">
-                        <div className="flex items-center gap-1 text-sm text-text-primary select-none pr-2.5">
-                          <span className="text-base leading-none">🇮🇳</span>
-                          <span className="text-[9px] text-text-secondary/60">▼</span>
-                          <span className="font-semibold text-sm ml-1">+91</span>
+                      <div>
+                        <div className={`relative flex items-center border-b ${errors.phone ? 'border-red-500' : 'border-border/80 focus-within:border-primary'} transition-all py-0.5`}>
+                          <div 
+                            className="flex shrink-0 items-center gap-1 text-sm text-text-primary select-none pr-2.5 cursor-pointer hover:bg-black/5 py-1 rounded transition-colors relative"
+                            onClick={() => {
+                              setCountryOpen(!countryOpen);
+                              setDomainOpen(false);
+                              setDeliveryOpen(false);
+                              setCountrySearch("");
+                            }}
+                          >
+                            <img src={`https://flagcdn.com/w20/${selectedCountry.code}.png`} alt={selectedCountry.name} className="w-[18px] h-[13px] object-cover rounded-[1px]" />
+                            <span className={`text-[9px] text-text-secondary/60 transition-transform duration-200 ${countryOpen ? "rotate-180" : ""}`}>▼</span>
+                            <span className="font-semibold text-sm ml-1">{selectedCountry.dialCode}</span>
+                            
+                            {/* Country Dropdown */}
+                            {countryOpen && (
+                              <>
+                                <div className="fixed inset-0 z-10" onClick={(e) => { e.stopPropagation(); setCountryOpen(false); }} />
+                                <div className="absolute z-20 top-full left-0 mt-2 w-[240px] bg-[#f5f5f5] rounded-lg shadow-xl border border-border/50 overflow-hidden animate-in fade-in slide-in-from-top-1 duration-150 cursor-default" onClick={e => e.stopPropagation()}>
+                                  <div className="p-3 bg-white border-b border-border/50">
+                                    <input
+                                      type="text"
+                                      placeholder="search"
+                                      value={countrySearch}
+                                      onChange={(e) => setCountrySearch(e.target.value)}
+                                      className="w-full px-2 py-1.5 text-sm text-text-secondary border border-border/60 rounded focus:outline-none focus:border-primary bg-white"
+                                    />
+                                  </div>
+                                  <div className="max-h-[160px] overflow-y-auto no-scrollbar pb-1 bg-white">
+                                    {countries
+                                      .filter(c => c.name.toLowerCase().includes(countrySearch.toLowerCase()) || c.dialCode.includes(countrySearch))
+                                      .map(c => (
+                                        <button
+                                          key={c.code}
+                                          type="button"
+                                          onClick={() => {
+                                            setSelectedCountry(c);
+                                            setCountryOpen(false);
+                                          }}
+                                          className={`w-full text-left px-3 py-2 text-sm flex items-center gap-3 hover:bg-black/5 transition-colors ${selectedCountry.code === c.code ? "bg-black/5" : ""}`}
+                                        >
+                                          <img src={`https://flagcdn.com/w20/${c.code}.png`} alt={c.name} className="w-[20px] h-[14px] object-cover rounded-[1px]" />
+                                          <span className="font-medium text-text-primary">{c.name}</span>
+                                          <span className="text-text-secondary ml-1">{c.dialCode}</span>
+                                        </button>
+                                      ))}
+                                    {countries.filter(c => c.name.toLowerCase().includes(countrySearch.toLowerCase()) || c.dialCode.includes(countrySearch)).length === 0 && (
+                                      <div className="px-3 py-4 text-sm text-text-secondary text-center">No results found</div>
+                                    )}
+                                  </div>
+                                </div>
+                              </>
+                            )}
+                          </div>
+
+                          <div className="relative w-full">
+                            <input
+                              type="tel"
+                              name="phone"
+                              id="phone"
+                              value={formData.phone}
+                              onChange={handleChange}
+                              className="w-full py-1.5 text-sm text-text-primary focus:outline-none bg-transparent rounded-none"
+                            />
+                            {!formData.phone && (
+                              <div className="absolute left-0 top-1.5 text-sm text-text-secondary/80 pointer-events-none select-none">
+                                Enter mobile number <span className="font-bold">*</span>
+                              </div>
+                            )}
+                          </div>
                         </div>
-                        <input
-                          type="tel"
-                          name="phone"
-                          id="phone"
-                          required
-                          value={formData.phone}
-                          onChange={handleChange}
-                          placeholder="Enter phone number"
-                          className="w-full py-1.5 text-sm text-text-primary placeholder:text-text-secondary/80 focus:outline-none bg-transparent rounded-none"
-                        />
+                        {errors.phone && (
+                          <div className="flex items-center gap-1.5 mt-1 text-red-500">
+                            <AlertTriangle className="w-3.5 h-3.5" />
+                            <span className="text-xs">{errors.phone}</span>
+                          </div>
+                        )}
                       </div>
 
                       {/* Company Name */}
-                      <div>
+                      <div className="relative">
                         <input
                           type="text"
                           name="company"
                           id="company"
-                          required
                           value={formData.company}
                           onChange={handleChange}
-                          placeholder="Enter company name"
-                          className="w-full border-b border-border/80 px-0 py-2 text-sm text-text-primary placeholder:text-text-secondary/80 focus:border-primary focus:outline-none transition-all bg-transparent rounded-none"
+                          className={`w-full border-b ${errors.company ? 'border-red-500' : 'border-border/80'} px-0 py-2 text-sm text-text-primary focus:outline-none transition-all bg-transparent rounded-none ${errors.company ? '' : 'focus:border-primary'}`}
                         />
+                        {!formData.company && (
+                          <div className="absolute left-0 top-2 text-sm text-text-secondary/80 pointer-events-none select-none">
+                            Enter company name <span className="font-bold">*</span>
+                          </div>
+                        )}
+                        {errors.company && (
+                          <div className="flex items-center gap-1.5 mt-1 text-red-500">
+                            <AlertTriangle className="w-3.5 h-3.5" />
+                            <span className="text-xs">{errors.company}</span>
+                          </div>
+                        )}
                       </div>
 
                       {/* Select Domain (Custom Hamburger Card Dropdown) */}
@@ -254,10 +390,14 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                             setDomainOpen(!domainOpen);
                             setDeliveryOpen(false);
                           }}
-                          className="w-full border-b border-border/80 px-0 py-2 text-sm text-left flex items-center justify-between text-text-primary focus:border-primary focus:outline-none transition-all bg-transparent rounded-none cursor-pointer"
+                          className={`w-full border-b ${errors.domain ? 'border-red-500' : 'border-border/80'} px-0 py-2 text-sm text-left flex items-center justify-between text-text-primary focus:outline-none transition-all bg-transparent rounded-none cursor-pointer ${errors.domain ? '' : 'focus:border-primary'}`}
                         >
                           <span className={formData.domain ? "text-text-primary font-semibold" : "text-text-secondary/80 font-normal"}>
-                            {formData.domain || "Select Domain"}
+                            {formData.domain || (
+                              <span className="flex items-center gap-1 text-sm text-text-secondary/80 pointer-events-none select-none">
+                                Select Domain <span className="font-bold">*</span>
+                              </span>
+                            )}
                           </span>
                           <ChevronDown className={`h-4 w-4 text-text-secondary/50 transition-transform duration-200 ${domainOpen ? "rotate-180" : ""}`} />
                         </button>
@@ -275,6 +415,7 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                                   type="button"
                                   onClick={() => {
                                     setFormData(prev => ({ ...prev, domain: option }));
+                                    if (errors.domain) setErrors(prev => ({ ...prev, domain: "" }));
                                     setDomainOpen(false);
                                   }}
                                   className="w-full text-left px-3.5 py-2 text-sm font-semibold rounded-xl text-text-primary hover:bg-primary/5 hover:text-primary transition-colors cursor-pointer block"
@@ -285,19 +426,35 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                             </div>
                           </>
                         )}
+                        {errors.domain && (
+                          <div className="flex items-center gap-1.5 mt-1 text-red-500">
+                            <AlertTriangle className="w-3.5 h-3.5" />
+                            <span className="text-xs">{errors.domain}</span>
+                          </div>
+                        )}
                       </div>
 
                       {/* No. of candidates */}
-                      <div>
+                      <div className="relative">
                         <input
                           type="number"
                           name="candidates"
                           id="candidates"
                           value={formData.candidates}
                           onChange={handleChange}
-                          placeholder="Enter No. of candidates"
-                          className="w-full border-b border-border/80 px-0 py-2 text-sm text-text-primary placeholder:text-text-secondary/80 focus:border-primary focus:outline-none transition-all bg-transparent rounded-none"
+                          className={`w-full border-b ${errors.candidates ? 'border-red-500' : 'border-border/80'} px-0 py-2 text-sm text-text-primary focus:outline-none transition-all bg-transparent rounded-none ${errors.candidates ? '' : 'focus:border-primary'}`}
                         />
+                        {!formData.candidates && (
+                          <div className="absolute left-0 top-2 text-sm text-text-secondary/80 pointer-events-none select-none">
+                            Enter No. of candidates <span className="font-bold">*</span>
+                          </div>
+                        )}
+                        {errors.candidates && (
+                          <div className="flex items-center gap-1.5 mt-1 text-red-500">
+                            <AlertTriangle className="w-3.5 h-3.5" />
+                            <span className="text-xs">{errors.candidates}</span>
+                          </div>
+                        )}
                       </div>
 
                       {/* Mode of Delivery (Custom Hamburger Card Dropdown) */}
@@ -308,10 +465,14 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                             setDeliveryOpen(!deliveryOpen);
                             setDomainOpen(false);
                           }}
-                          className="w-full border-b border-border/80 px-0 py-2 text-sm text-left flex items-center justify-between text-text-primary focus:border-primary focus:outline-none transition-all bg-transparent rounded-none cursor-pointer"
+                          className={`w-full border-b ${errors.deliveryMode ? 'border-red-500' : 'border-border/80'} px-0 py-2 text-sm text-left flex items-center justify-between text-text-primary focus:outline-none transition-all bg-transparent rounded-none cursor-pointer ${errors.deliveryMode ? '' : 'focus:border-primary'}`}
                         >
                           <span className={formData.deliveryMode ? "text-text-primary font-semibold" : "text-text-secondary/80 font-normal"}>
-                            {formData.deliveryMode || "Select Mode of Delivery *"}
+                            {formData.deliveryMode || (
+                              <span className="flex items-center gap-1 text-sm text-text-secondary/80 pointer-events-none select-none">
+                                Select Mode of Delivery <span className="font-bold">*</span>
+                              </span>
+                            )}
                           </span>
                           <ChevronDown className={`h-4 w-4 text-text-secondary/50 transition-transform duration-200 ${deliveryOpen ? "rotate-180" : ""}`} />
                         </button>
@@ -329,6 +490,7 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                                   type="button"
                                   onClick={() => {
                                     setFormData(prev => ({ ...prev, deliveryMode: option }));
+                                    if (errors.deliveryMode) setErrors(prev => ({ ...prev, deliveryMode: "" }));
                                     setDeliveryOpen(false);
                                   }}
                                   className="w-full text-left px-3.5 py-2 text-sm font-semibold rounded-xl text-text-primary hover:bg-primary/5 hover:text-primary transition-colors cursor-pointer block"
@@ -338,6 +500,12 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                               ))}
                             </div>
                           </>
+                        )}
+                        {errors.deliveryMode && (
+                          <div className="flex items-center gap-1.5 mt-1 text-red-500">
+                            <AlertTriangle className="w-3.5 h-3.5" />
+                            <span className="text-xs">{errors.deliveryMode}</span>
+                          </div>
                         )}
                       </div>
 
