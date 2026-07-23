@@ -92,6 +92,9 @@ This project was developed by pairing with AI tools, strictly following the inte
 - **Enquiry Modal Dropdowns:** Replaced native browser dropdown lists with custom-styled React float-popovers that slide down like the mobile navigation categories overlay.
 - **Dynamic Mobile Aspect-Ratios:** Swapped the USP diagrams to use native `<img>` tags (`w-full h-auto`) to scale cleanly inside the `max-w-7xl` container without fixed container height restrictions.
 - **Scroll Buffer Protection:** Patched scrolling height offsets in modal containers (`pb-36`) so absolute dropdown overlays expand without clipping on smaller mobile viewports.
+- **Technical SEO & Core Web Vitals:** Refactored the `PageShell` component to use static imports instead of `next/dynamic`, replacing a blank "CSR shell" with full Server-Side Rendering (SSR). This eliminated a massive element render delay, dramatically improving Largest Contentful Paint (LCP) and ensuring Googlebot instantly crawls the full page structure.
+- **Advanced Security & Indexing Headers:** Implemented strict HTTP headers in `next.config.ts`, including `Content-Security-Policy`, `X-Content-Type-Options`, and conditional `X-Robots-Tag: noindex, nofollow` specifically targeting Vercel preview environments to prevent duplicate-content indexing penalties.
+- **GEO (Generative Engine Optimization):** Engineered an `llms.txt` file structured explicitly for AI search crawlers (ChatGPT, Perplexity) citing key organizational metrics. Successfully requested indexing and passed the Google Search Console "Live Test" with zero errors.
 
 ---
 
