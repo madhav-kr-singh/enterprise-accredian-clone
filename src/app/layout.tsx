@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   title: "Enterprise AI & L&D Training India | Accredian Enterprise",
   description: "Accredian Enterprise delivers Gen AI bootcamps, IIT/IIM-certified cohort programs, and CAT-framework skill gap analysis for corporate teams. 10,000+ professionals trained across Reliance, HCL, IBM, ADP, and CRIF.",
   icons: {
-    icon: "https://res.cloudinary.com/dpr83w1ub/image/upload/v1784746945/tab-icon_mypayy.webp",
+    icon: "/tab-icon.webp",
   },
   keywords: [
     "Gen AI corporate training India",
@@ -37,8 +37,9 @@ export const metadata: Metadata = {
   authors: [{ name: "Accredian" }],
   creator: "Accredian L&D Team",
   publisher: "Accredian",
+  metadataBase: new URL("https://enterprise-accredian-clone.vercel.app"),
   alternates: {
-    canonical: "https://enterprise.accredian.com",
+    canonical: "/",
   },
   robots: {
     index: true,
@@ -47,7 +48,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://enterprise.accredian.com",
+    url: "https://enterprise-accredian-clone.vercel.app",
     title: "Enterprise AI & L&D Training India | Accredian Enterprise",
     description: "Gen AI bootcamps, IIT/IIM-certified cohort programs, and CAT-framework upskilling for corporate teams. 10,000+ professionals trained.",
     siteName: "Accredian Enterprise",

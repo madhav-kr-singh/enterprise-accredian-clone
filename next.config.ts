@@ -22,21 +22,10 @@ const nextConfig: NextConfig = {
       { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=()" },
     ];
 
-    if (process.env.VERCEL_ENV === "production") {
-      return [
-        {
-          source: "/(.*)",
-          headers: securityHeaders,
-        },
-      ];
-    }
     return [
       {
         source: "/(.*)",
-        headers: [
-          ...securityHeaders,
-          { key: "X-Robots-Tag", value: "noindex" },
-        ],
+        headers: securityHeaders,
       },
     ];
   },

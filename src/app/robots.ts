@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: "/api/",
     },
-    sitemap: "https://enterprise.accredian.com/sitemap.xml",
+    sitemap: "https://enterprise-accredian-clone.vercel.app/sitemap.xml",
   };
 }

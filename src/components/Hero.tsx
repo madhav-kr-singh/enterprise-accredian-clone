@@ -40,11 +40,11 @@ export default function Hero({ onEnquireClick }: HeroProps) {
                 className="space-y-1.5"
               >
                 <p className="text-lg sm:text-xl font-bold text-text-primary leading-snug">
-                  Cultivate high-performance
+                  Cultivate high-performance teams with the premier
                 </p>
-                <p className="text-lg sm:text-xl font-bold text-text-primary leading-snug">
-                  teams through expert learning.
-                </p>
+                <h2 className="text-lg sm:text-xl font-bold text-text-primary leading-snug">
+                  Gen AI corporate training in India.
+                </h2>
               </motion.div>
 
               {/* Checklist Group (2x2 Grid on mobile, horizontal flex on desktop) */}
