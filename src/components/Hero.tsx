@@ -20,15 +20,14 @@ export default function Hero({ onEnquireClick }: HeroProps) {
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center relative z-10">
             {/* Left Content Column */}
-            <div className="lg:col-span-7 flex flex-col space-y-4 lg:space-y-9 text-left order-2 lg:order-1">
-              {/* Main Headline */}
+            <div className="lg:col-span-7 flex flex-col space-y-4 lg:space-y-9 text-center lg:text-left items-center lg:items-start order-2 lg:order-1">
               <motion.h1
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-3xl sm:text-2xl lg:text-[40px] xl:text-[55px] font-extrabold tracking-tight leading-[1.1] text-text-primary"
+                className="text-[22px] sm:text-3xl lg:text-[40px] xl:text-[55px] font-extrabold tracking-tight leading-[1.1] text-text-primary"
               >
-                Next-Gen <span className="text-primary">Expertise</span> <br />
+                Next-Gen <span className="text-primary">Expertise</span> <br className="hidden lg:block" />
                 For Your <span className="text-primary">Enterprise</span>
               </motion.h1>
 
@@ -37,14 +36,11 @@ export default function Hero({ onEnquireClick }: HeroProps) {
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="space-y-1.5"
+                className="space-y-3 lg:space-y-1.5 flex flex-col items-center lg:items-start"
               >
-                <p className="text-lg sm:text-xl font-bold text-text-primary leading-snug">
-                  Cultivate high-performance teams with the premier
+                <p className="text-sm sm:text-lg lg:text-xl font-medium text-text-primary leading-snug">
+                 Cultivate high-performance teams through expert learning.
                 </p>
-                <h2 className="text-lg sm:text-xl font-bold text-text-primary leading-snug">
-                  Gen AI corporate training in India.
-                </h2>
               </motion.div>
 
               {/* Checklist Group (2x2 Grid on mobile, horizontal flex on desktop) */}
@@ -52,7 +48,7 @@ export default function Hero({ onEnquireClick }: HeroProps) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="grid grid-cols-2 gap-x-4 gap-y-3 pt-2 lg:flex lg:flex-wrap lg:gap-x-6 lg:gap-y-3"
+                className="grid grid-cols-2 gap-x-6 gap-y-5 pt-3 w-fit lg:w-auto lg:flex lg:flex-wrap lg:gap-x-6 lg:gap-y-3"
               >
                 {[
                   "Tailored Solutions",
@@ -62,12 +58,11 @@ export default function Hero({ onEnquireClick }: HeroProps) {
                 ].map((item) => (
                   <div
                     key={item}
-                    className={`flex items-center gap-2 ${
-                      item === "Measurable Impact" ? "lg:hidden" : ""
-                    }`}
+                    className={`flex items-center gap-2 ${item === "Measurable Impact" ? "lg:hidden" : ""
+                      }`}
                   >
-                    <CheckCircle2 className="h-5 w-5 text-green-500 fill-green-500/10 flex-shrink-0" />
-                    <span className="text-xs sm:text-sm font-semibold text-text-primary/95 whitespace-nowrap">
+                    <CheckCircle2 className="h-[22px] w-[22px] lg:h-5 lg:w-5 text-green-500 fill-green-500/10 flex-shrink-0" />
+                    <span className="text-sm lg:text-sm font-semibold text-text-primary/95 whitespace-nowrap">
                       {item}
                     </span>
                   </div>
@@ -98,9 +93,9 @@ export default function Hero({ onEnquireClick }: HeroProps) {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.15 }}
-              className="lg:hidden w-full flex justify-center mt-6 mb-6 order-1"
+              className="lg:hidden w-full flex justify-center mt-2 mb-6 order-1"
             >
-              <div className="relative w-full max-w-sm aspect-[1.3] h-[250px]">
+              <div className="relative w-full max-w-[400px] aspect-[4/3] sm:aspect-auto sm:h-[300px]">
                 <div className="absolute inset-0 z-20" onContextMenu={(e) => e.preventDefault()} />
                 <Image
                   src="https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745602/hero-img_gl0tdo.webp"
