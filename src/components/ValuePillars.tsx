@@ -86,6 +86,7 @@ export default function ValuePillars() {
                   src="/asset/imgi_9_accredian-edge-usp-v3.svg"
                   alt="Accredian Edge USP Desktop diagram"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-contain"
                 />
               </div>
@@ -96,6 +97,7 @@ export default function ValuePillars() {
                   src="/asset/imgi_10_accredian-edge-usp-mobile.svg"
                   alt="Accredian Edge USP Mobile diagram"
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-contain"
                 />
               </div>

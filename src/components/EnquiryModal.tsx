@@ -127,8 +127,8 @@ export default function EnquiryModal({ isOpen, onClose }: EnquiryModalProps) {
                 src="https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745101/enquiry_slbyog.webp"
                 alt="Business discussions in a glass building"
                 fill
-                priority
                 sizes="(max-width: 768px) 100vw, 50vw"
+                priority
                 className="object-cover pointer-events-none select-none"
               />
             </div>

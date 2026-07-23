@@ -31,7 +31,7 @@ export default function Testimonials() {
           <h2 className="text-3xl font-extrabold tracking-tight text-text-primary sm:text-4xl">
             Testimonials from <span className="text-primary">Our Partners</span>
           </h2>
-          <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-text-secondary/70">
+          <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-text-secondary/90">
             What <span className="text-primary">Our Clients</span> Are Saying
           </p>
         </div>
@@ -49,6 +49,7 @@ export default function Testimonials() {
                   src={t.logo}
                   alt={`${t.name} Logo`}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-contain object-left"
                 />
               </div>
@@ -84,6 +85,7 @@ export default function Testimonials() {
                     src={testimonials[mobileIndex].logo}
                     alt={`${testimonials[mobileIndex].name} Logo`}
                     fill
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     className="object-contain object-left"
                   />
                 </div>
@@ -97,16 +99,20 @@ export default function Testimonials() {
           </div>
 
           {/* Dot Indicators */}
-          <div className="flex justify-center gap-2 mt-6">
+          <div className="flex justify-center gap-1 mt-6">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setMobileIndex(index)}
-                className={`h-2 rounded-full transition-all cursor-pointer ${
-                  mobileIndex === index ? "w-6 bg-primary" : "w-2 bg-border"
-                }`}
+                className="w-11 h-11 flex items-center justify-center"
                 aria-label={`Go to slide ${index + 1}`}
-              />
+              >
+                <div
+                  className={`h-2 rounded-full transition-all ${
+                    mobileIndex === index ? "w-6 bg-primary" : "w-2 bg-border"
+                  }`}
+                />
+              </button>
             ))}
           </div>
         </div>

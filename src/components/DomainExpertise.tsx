@@ -24,7 +24,7 @@ export default function DomainExpertise() {
           <h2 className="text-3xl font-extrabold tracking-tight text-text-primary sm:text-4xl">
             Our <span className="text-primary">Domain Expertise</span>
           </h2>
-          <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-text-secondary/70">
+          <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-text-secondary/90">
             Specialized Programs Designed to Fuel Innovation
           </p>
         </div>

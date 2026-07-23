@@ -30,7 +30,7 @@ export default function StatsBand() {
           <h2 className="text-3xl font-extrabold tracking-tight text-text-primary sm:text-4xl">
             Our <span className="text-primary">Track Record</span>
           </h2>
-          <p className="mt-2 text-sm font-semibold uppercase tracking-wider text-text-secondary/70">
+          <p className="mt-2 text-sm font-semibold uppercase tracking-wider text-text-secondary/90">
             The Numbers Behind Our Success
           </p>
         </div>

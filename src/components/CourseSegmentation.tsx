@@ -67,7 +67,7 @@ export default function CourseSegmentation() {
           <h2 className="text-3xl font-extrabold tracking-tight text-text-primary sm:text-4xl">
             Tailored <span className="text-primary">Course Segmentation</span>
           </h2>
-          <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-text-secondary/70">
+          <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-text-secondary/90">
             Explore Custom-fit Courses Designed to Address Every Professional Focus
           </p>
         </div>
@@ -87,6 +87,7 @@ export default function CourseSegmentation() {
                       src={segment.image}
                       alt={segment.title}
                       fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
                       className="object-cover"
                     />
                   </div>
@@ -102,7 +103,7 @@ export default function CourseSegmentation() {
           </div>
 
           {/* Dots Indicators */}
-          <div className="flex justify-center space-x-2 mt-4">
+          <div className="flex justify-center gap-1 mt-4">
             {segments.map((_, idx) => {
               const displayDotIndex = activeIndex % segments.length;
               return (
@@ -112,11 +113,15 @@ export default function CourseSegmentation() {
                     setIsTransitioning(true);
                     setActiveIndex(idx);
                   }}
-                  className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
-                    displayDotIndex === idx ? "bg-primary w-5" : "bg-neutral-300"
-                  }`}
+                  className="w-11 h-11 flex items-center justify-center"
                   aria-label={`Go to slide ${idx + 1}`}
-                />
+                >
+                  <div
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      displayDotIndex === idx ? "bg-primary w-5" : "bg-neutral-300 w-2.5"
+                    }`}
+                  />
+                </button>
               );
             })}
           </div>
@@ -139,6 +144,7 @@ export default function CourseSegmentation() {
                   src={segment.image}
                   alt={segment.title}
                   fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-cover group-hover:scale-103 transition-transform duration-300"
                 />
               </div>

@@ -80,7 +80,7 @@ export default function Footer({ onEnquireClick }: FooterProps) {
             >
               Enquire Now
             </button>
-            <span className="text-[11px] font-bold text-text-secondary/70 pl-1 sm:pl-0">
+            <span className="text-[11px] font-bold text-text-secondary/90 pl-1 sm:pl-0">
               Speak with our Advisor
             </span>
           </div>
@@ -129,7 +129,7 @@ export default function Footer({ onEnquireClick }: FooterProps) {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-border/60 pt-6 text-center text-xs text-text-secondary/70">
+        <div className="border-t border-border/60 pt-6 text-center text-xs text-text-secondary/90">
           <p>© 2026 Accredian A Brand of FullStack Education Pvt Ltd. All Rights Reserved</p>
         </div>
       </div>

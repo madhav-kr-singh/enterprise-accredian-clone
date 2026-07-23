@@ -13,7 +13,7 @@ export default function AccredianEdge() {
           <h2 className="text-3xl font-extrabold tracking-tight text-text-primary sm:text-4xl">
             The <span className="text-primary">Accredian Edge</span>
           </h2>
-          <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-text-secondary/70">
+          <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-text-secondary/90">
             Key Aspects of Our Strategic Training
           </p>
         </div>

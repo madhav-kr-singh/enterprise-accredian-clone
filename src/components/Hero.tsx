@@ -106,8 +106,8 @@ export default function Hero({ onEnquireClick }: HeroProps) {
                   src="https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745602/hero-img_gl0tdo.webp"
                   alt="Business professional upskilling partners"
                   fill
-                  priority
                   sizes="(max-width: 1024px) 100vw, 50vw"
+                  priority
                   className="object-contain object-center drop-shadow-md pointer-events-none select-none"
                 />
               </div>
@@ -126,8 +126,8 @@ export default function Hero({ onEnquireClick }: HeroProps) {
               src="https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745602/hero-img_gl0tdo.webp"
               alt="Business professional upskilling partners"
               fill
-              priority
               sizes="(max-width: 1024px) 100vw, 50vw"
+              priority
               className="object-contain object-bottom object-right drop-shadow-lg pointer-events-none select-none"
             />
           </motion.div>

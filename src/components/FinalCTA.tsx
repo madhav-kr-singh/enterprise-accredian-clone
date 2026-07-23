@@ -51,6 +51,7 @@ export default function FinalCTA({ onContactClick }: FinalCTAProps) {
               src="/asset/imgi_44_cta-circle.svg"
               alt=""
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover object-center scale-150"
             />
           </div>

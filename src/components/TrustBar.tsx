@@ -21,7 +21,7 @@ export default function TrustBar() {
           <h2 className="text-3xl font-extrabold tracking-tight text-text-primary sm:text-4xl">
             Our Proven <span className="text-primary">Partnerships</span>
           </h2>
-          <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-text-secondary/70">
+          <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-text-secondary/90">
             Successful Collaborations With the Industry's Best
           </p>
         </div>

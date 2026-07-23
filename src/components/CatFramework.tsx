@@ -13,7 +13,7 @@ export default function CatFramework() {
           <h2 className="text-3xl font-extrabold tracking-tight text-text-primary sm:text-4xl">
             The <span className="text-primary">CAT Framework</span>
           </h2>
-          <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-text-secondary/70">
+          <p className="mt-2 text-xs font-semibold uppercase tracking-wider text-text-secondary/90">
             Our Proven Approach to Learning Excellence
           </p>
         </div>
@@ -32,6 +32,7 @@ export default function CatFramework() {
                 src="/asset/imgi_16_catV2.svg"
                 alt="CAT framework diagram: Concept, Application, Tools"
                 fill
+                sizes="(max-width: 768px) 100vw, 50vw"
                 priority
                 className="object-contain"
               />
