@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   description: "Accredian Enterprise delivers Gen AI bootcamps, IIT/IIM-certified cohort programs, and CAT-framework skill gap analysis for corporate teams. 10,000+ professionals trained across Reliance, HCL, IBM, ADP, and CRIF.",
   icons: {
     icon: "/tab-icon.webp",
+    apple: "/tab-icon.webp",
   },
   keywords: [
     "Gen AI corporate training India",
@@ -44,6 +45,13 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
   openGraph: {
     type: "website",
@@ -52,11 +60,21 @@ export const metadata: Metadata = {
     title: "Enterprise AI & L&D Training India | Accredian Enterprise",
     description: "Gen AI bootcamps, IIT/IIM-certified cohort programs, and CAT-framework upskilling for corporate teams. 10,000+ professionals trained.",
     siteName: "Accredian Enterprise",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745602/hero-img_gl0tdo.webp",
+        width: 1200,
+        height: 630,
+        alt: "Accredian Enterprise Corporate Training",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "Enterprise AI & L&D Training India | Accredian Enterprise",
     description: "Gen AI bootcamps, IIT/IIM-certified cohort programs, and CAT-framework upskilling for corporate teams. 10,000+ professionals trained.",
+    creator: "@accredian",
+    images: ["https://res.cloudinary.com/dpr83w1ub/image/upload/v1784745602/hero-img_gl0tdo.webp"],
   },
 };
 
@@ -179,6 +197,36 @@ export default function RootLayout({
                       }
                     }
                   ]
+                },
+                {
+                  "@type": "Course",
+                  "name": "Generative AI Mastery for Enterprise",
+                  "description": "Cohort-based upskilling program teaching employees to apply Generative AI tools and LLMs to real business workflows.",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "Accredian Enterprise",
+                    "sameAs": "https://enterprise.accredian.com"
+                  }
+                },
+                {
+                  "@type": "Course",
+                  "name": "Data Science & AI Enterprise Program",
+                  "description": "Advanced corporate training in Data Science, Machine Learning, and AI integration for engineering and tech teams.",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "Accredian Enterprise",
+                    "sameAs": "https://enterprise.accredian.com"
+                  }
+                },
+                {
+                  "@type": "Course",
+                  "name": "Executive Product Management",
+                  "description": "Leadership elevation program for product managers and CXOs in collaboration with top academic institutions.",
+                  "provider": {
+                    "@type": "Organization",
+                    "name": "Accredian Enterprise",
+                    "sameAs": "https://enterprise.accredian.com"
+                  }
                 }
               ]
             }),
