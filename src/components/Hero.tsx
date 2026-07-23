@@ -11,7 +11,7 @@ interface HeroProps {
 
 export default function Hero({ onEnquireClick }: HeroProps) {
   return (
-    <section id="hero" className="bg-white pt-6 pb-0 sm:pt-40 lg:pt-29 lg:pb-0 overflow-hidden" suppressHydrationWarning>
+    <section id="hero" className="bg-white pt-6 pb-0 sm:pt-40 lg:pt-29 lg:pb-0 overflow-hidden scale:" suppressHydrationWarning>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" suppressHydrationWarning>
         {/* Main Hero Card Container */}
         <div className="relative overflow-hidden bg-gradient-to-br from-[#EBF3FF] via-[#F4F8FF] to-white lg:border lg:border-[#E1EEFF] p-6 sm:p-15 sm-py-20 lg:py-14 lg:px-12 lg:pl-12 lg:shadow-sm -mx-4 sm:-mx-6 lg:mx-0 rounded-none lg:rounded-[2rem] border-none shadow-none" suppressHydrationWarning>
@@ -93,7 +93,7 @@ export default function Hero({ onEnquireClick }: HeroProps) {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: 0.15 }}
-              className="lg:hidden w-full flex justify-center mt-2 mb-6 order-1"
+              className="lg:hidden w-full flex justify-center mt-4 mb-6 order-1"
             >
               <div className="relative w-full max-w-[400px] aspect-[4/3] sm:aspect-auto sm:h-[300px]">
                 <div className="absolute inset-0 z-20" onContextMenu={(e) => e.preventDefault()} />
