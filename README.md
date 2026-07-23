@@ -52,7 +52,7 @@ The application is built using **Next.js (App Router)**, **TypeScript**, and **T
 
 1. **Clone this repository:**
    ```bash
-   git clone https://github.com/madhav-kr-singh/enterprise-accredian-clone.git
+   https://github.com/madhav-kr-singh/assignment-project.git
    cd accredian
    ```
 
